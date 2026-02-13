@@ -1,5 +1,7 @@
 """Entity control screen: form-based input for brightness, temperature, etc."""
 
+from __future__ import annotations
+
 import logging
 
 from .base import Screen

@@ -1,5 +1,7 @@
 """Logs screen: recent logbook entries with pagination."""
 
+from __future__ import annotations
+
 import logging
 import math
 

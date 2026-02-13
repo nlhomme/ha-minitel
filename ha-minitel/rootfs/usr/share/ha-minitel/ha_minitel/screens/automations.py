@@ -1,5 +1,7 @@
 """Automations screen: list and trigger automations."""
 
+from __future__ import annotations
+
 import logging
 import math
 

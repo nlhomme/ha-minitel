@@ -1,5 +1,7 @@
 """Entity detail screen: state + domain-specific controls."""
 
+from __future__ import annotations
+
 import logging
 
 from .base import Screen

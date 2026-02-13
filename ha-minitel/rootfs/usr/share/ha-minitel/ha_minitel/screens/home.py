@@ -1,5 +1,7 @@
 """Home screen: area list + automations/logs menu."""
 
+from __future__ import annotations
+
 import logging
 
 from .base import Screen

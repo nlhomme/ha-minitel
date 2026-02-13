@@ -1,5 +1,7 @@
 """Session management: one session per transport, screen navigation stack."""
 
+from __future__ import annotations
+
 import asyncio
 import logging
 from typing import Callable, Awaitable
