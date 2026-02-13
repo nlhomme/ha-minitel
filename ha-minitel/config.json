@@ -11,6 +11,7 @@
     "amd64",
     "i386"
   ],
+  "init": false,
   "startup": "services",
   "homeassistant_api": true,
   "uart": true,
