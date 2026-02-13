@@ -6,6 +6,7 @@ import uuid
 from typing import Callable, Awaitable
 
 import websockets
+import websockets.connection
 import websockets.server
 
 from .base import Transport
@@ -16,7 +17,7 @@ logger = logging.getLogger(__name__)
 class WebSocketTransport(Transport):
     """Wraps a WebSocket connection as a Transport."""
 
-    def __init__(self, ws: websockets.server.WebSocketServerProtocol):
+    def __init__(self, ws: websockets.server.ServerConnection):
         self._ws = ws
         self._id = f"ws-{uuid.uuid4().hex[:8]}"
 
@@ -34,7 +35,7 @@ class WebSocketTransport(Transport):
 
     @property
     def is_connected(self) -> bool:
-        return self._ws.open
+        return self._ws.state is websockets.connection.State.OPEN
 
     @property
     def transport_id(self) -> str:
@@ -63,7 +64,7 @@ class WebSocketServer:
             logger.info("WebSocket server listening on port %d", self.port)
             await asyncio.Future()  # run forever
 
-    async def _handler(self, ws: websockets.server.WebSocketServerProtocol):
+    async def _handler(self, ws: websockets.server.ServerConnection):
         transport = WebSocketTransport(ws)
         logger.info("New WebSocket connection: %s", transport.transport_id)
         try:
