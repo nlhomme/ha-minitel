@@ -59,7 +59,6 @@ class WebSocketServer:
             self._handler,
             "0.0.0.0",
             self.port,
-            subprotocols=["minitel"],
         ):
             logger.info("WebSocket server listening on port %d", self.port)
             await asyncio.Future()  # run forever
