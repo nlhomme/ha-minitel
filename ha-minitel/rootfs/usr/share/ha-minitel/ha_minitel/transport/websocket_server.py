@@ -2,9 +2,8 @@
 
 import asyncio
 import logging
-import ssl
 import uuid
-from typing import Callable, Awaitable, Optional
+from typing import Callable, Awaitable
 
 import websockets
 import websockets.server
@@ -50,16 +49,10 @@ class WebSocketServer:
         port: int,
         on_connect: Callable[[Transport], Awaitable[None]],
         on_disconnect: Callable[[Transport], Awaitable[None]],
-        ssl_certfile: str = "",
-        ssl_keyfile: str = "",
     ):
         self.port = port
         self._on_connect = on_connect
         self._on_disconnect = on_disconnect
-        self._ssl_context: Optional[ssl.SSLContext] = None
-        if ssl_certfile and ssl_keyfile:
-            self._ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-            self._ssl_context.load_cert_chain(ssl_certfile, ssl_keyfile)
 
     async def serve(self):
         async with websockets.serve(
@@ -67,10 +60,8 @@ class WebSocketServer:
             "0.0.0.0",
             self.port,
             subprotocols=["minitel"],
-            ssl=self._ssl_context,
         ):
-            scheme = "wss" if self._ssl_context else "ws"
-            logger.info("%s server listening on port %d", scheme.upper(), self.port)
+            logger.info("WebSocket server listening on port %d", self.port)
             await asyncio.Future()  # run forever
 
     async def _handler(self, ws: websockets.server.WebSocketServerProtocol):
