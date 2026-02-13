@@ -1,0 +1,22 @@
+configuration:
+  language:
+    name: Langue
+    description: Langue d'affichage pour l'interface Minitel
+  websocket_port:
+    name: Port WebSocket
+    description: Port du serveur WebSocket (défaut 3615)
+  serial_enabled:
+    name: Activer le série
+    description: Activer le port série pour un terminal Minitel physique
+  serial_device:
+    name: Périphérique série
+    description: Chemin du périphérique série (ex. /dev/ttyUSB0)
+  serial_baud_rate:
+    name: Débit en bauds
+    description: Vitesse de communication série
+  serial_parity:
+    name: Parité série
+    description: Réglage de parité pour la communication série
+  log_level:
+    name: Niveau de log
+    description: Niveau de verbosité des logs

@@ -1,0 +1,42 @@
+{
+  "name": "Minitel for Home Assistant",
+  "version": "0.1.0",
+  "slug": "ha_minitel",
+  "description": "Browse and control Home Assistant from a Minitel terminal or emulator",
+  "url": "https://github.com/nl/ha-minitel",
+  "arch": [
+    "armhf",
+    "armv7",
+    "aarch64",
+    "amd64",
+    "i386"
+  ],
+  "startup": "services",
+  "homeassistant_api": true,
+  "uart": true,
+  "auto_uart": true,
+  "ports": {
+    "3615/tcp": 3615
+  },
+  "ports_description": {
+    "3615/tcp": "WebSocket server for Minitel emulators"
+  },
+  "options": {
+    "language": "fr",
+    "websocket_port": 3615,
+    "serial_enabled": false,
+    "serial_device": "",
+    "serial_baud_rate": 1200,
+    "serial_parity": "even",
+    "log_level": "info"
+  },
+  "schema": {
+    "language": "list(fr|en)",
+    "websocket_port": "port",
+    "serial_enabled": "bool",
+    "serial_device": "str",
+    "serial_baud_rate": "list(1200|4800|9600)",
+    "serial_parity": "list(none|even|odd)",
+    "log_level": "list(debug|info|warning|error)"
+  }
+}

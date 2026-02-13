@@ -1,0 +1,54 @@
+{
+  "home": {
+    "title": "MINITEL HA",
+    "subtitle": "Domotique",
+    "areas_header": "Pièces",
+    "automations": "Automations",
+    "logs": "Journal",
+    "footer": "Tapez un numéro ou SOMMAIRE"
+  },
+  "rooms": {
+    "title": "Pièce: {name}",
+    "no_entities": "Aucune entité",
+    "page": "Page {current}/{total}",
+    "footer": "N°+ENVOI, SUITE/RETOUR, SOMMAIRE"
+  },
+  "entity": {
+    "title": "Détail",
+    "state": "État: {state}",
+    "toggle": "1. Basculer",
+    "control": "2. Contrôler",
+    "back": "RETOUR pour revenir",
+    "toggled": "Basculé!",
+    "unavailable": "Indisponible"
+  },
+  "control": {
+    "title": "Contrôle: {name}",
+    "brightness": "Luminosité (0-255):",
+    "temperature": "Température:",
+    "position": "Position (0-100):",
+    "submit": "ENVOI pour valider",
+    "success": "Commande envoyée!",
+    "error": "Erreur: {msg}"
+  },
+  "automations": {
+    "title": "Automations",
+    "trigger": "ENVOI pour déclencher",
+    "triggered": "Déclenchée!",
+    "footer": "N°+ENVOI, SUITE/RETOUR, SOMMAIRE"
+  },
+  "logs": {
+    "title": "Journal",
+    "empty": "Aucune entrée récente",
+    "footer": "SUITE/RETOUR, SOMMAIRE"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "on": "Allumé",
+    "off": "Éteint",
+    "open": "Ouvert",
+    "closed": "Fermé",
+    "unknown": "Inconnu"
+  }
+}
