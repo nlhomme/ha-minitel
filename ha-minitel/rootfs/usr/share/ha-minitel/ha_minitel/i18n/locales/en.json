@@ -1,0 +1,54 @@
+{
+  "home": {
+    "title": "MINITEL HA",
+    "subtitle": "Home Automation",
+    "areas_header": "Rooms",
+    "automations": "Automations",
+    "logs": "Logs",
+    "footer": "Type a number or SOMMAIRE"
+  },
+  "rooms": {
+    "title": "Room: {name}",
+    "no_entities": "No entities",
+    "page": "Page {current}/{total}",
+    "footer": "N+ENVOI, SUITE/RETOUR, SOMMAIRE"
+  },
+  "entity": {
+    "title": "Detail",
+    "state": "State: {state}",
+    "toggle": "1. Toggle",
+    "control": "2. Control",
+    "back": "RETOUR to go back",
+    "toggled": "Toggled!",
+    "unavailable": "Unavailable"
+  },
+  "control": {
+    "title": "Control: {name}",
+    "brightness": "Brightness (0-255):",
+    "temperature": "Temperature:",
+    "position": "Position (0-100):",
+    "submit": "ENVOI to submit",
+    "success": "Command sent!",
+    "error": "Error: {msg}"
+  },
+  "automations": {
+    "title": "Automations",
+    "trigger": "ENVOI to trigger",
+    "triggered": "Triggered!",
+    "footer": "N+ENVOI, SUITE/RETOUR, SOMMAIRE"
+  },
+  "logs": {
+    "title": "Logs",
+    "empty": "No recent entries",
+    "footer": "SUITE/RETOUR, SOMMAIRE"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "on": "On",
+    "off": "Off",
+    "open": "Open",
+    "closed": "Closed",
+    "unknown": "Unknown"
+  }
+}
