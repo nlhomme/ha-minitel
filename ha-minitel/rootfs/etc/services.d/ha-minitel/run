@@ -1,0 +1,35 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Start the ha-minitel service
+# ==============================================================================
+
+declare language
+declare websocket_port
+declare serial_enabled
+declare serial_device
+declare serial_baud_rate
+declare serial_parity
+declare log_level
+
+language=$(bashio::config 'language')
+websocket_port=$(bashio::config 'websocket_port')
+serial_enabled=$(bashio::config 'serial_enabled')
+serial_device=$(bashio::config 'serial_device')
+serial_baud_rate=$(bashio::config 'serial_baud_rate')
+serial_parity=$(bashio::config 'serial_parity')
+log_level=$(bashio::config 'log_level')
+
+args=(
+    --language "${language}"
+    --websocket-port "${websocket_port}"
+    --serial-baud-rate "${serial_baud_rate}"
+    --serial-parity "${serial_parity}"
+    --log-level "${log_level}"
+)
+
+if bashio::var.true "${serial_enabled}" && bashio::var.has_value "${serial_device}"; then
+    args+=(--serial-device "${serial_device}")
+fi
+
+bashio::log.info "Starting ha-minitel..."
+exec python3 /usr/share/ha-minitel/main.py "${args[@]}"
