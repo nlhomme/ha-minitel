@@ -10,6 +10,17 @@ declare serial_device
 declare serial_baud_rate
 declare serial_parity
 declare log_level
+declare ssl_certfile="/ssl/cert.pem"
+declare ssl_keyfile="/ssl/key.pem"
+
+# Generate self-signed certificate if it doesn't exist
+if [ ! -f "${ssl_certfile}" ] || [ ! -f "${ssl_keyfile}" ]; then
+    bashio::log.info "Generating self-signed TLS certificate..."
+    mkdir -p /ssl
+    openssl req -x509 -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 \
+        -keyout "${ssl_keyfile}" -out "${ssl_certfile}" \
+        -days 3650 -nodes -subj "/CN=ha-minitel"
+fi
 
 language=$(bashio::config 'language')
 websocket_port=$(bashio::config 'websocket_port')
@@ -25,6 +36,8 @@ args=(
     --serial-baud-rate "${serial_baud_rate}"
     --serial-parity "${serial_parity}"
     --log-level "${log_level}"
+    --ssl-certfile "${ssl_certfile}"
+    --ssl-keyfile "${ssl_keyfile}"
 )
 
 if bashio::var.true "${serial_enabled}" && bashio::var.has_value "${serial_device}"; then

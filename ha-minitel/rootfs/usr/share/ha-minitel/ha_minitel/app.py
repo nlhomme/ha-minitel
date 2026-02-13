@@ -39,6 +39,8 @@ class Application:
             port=self.config.websocket_port,
             on_connect=self.session_manager.on_transport_connected,
             on_disconnect=self.session_manager.on_transport_disconnected,
+            ssl_certfile=self.config.ssl_certfile,
+            ssl_keyfile=self.config.ssl_keyfile,
         )
         tasks.append(asyncio.create_task(ws_server.serve()))
         logger.info("WebSocket server starting on port %d", self.config.websocket_port)

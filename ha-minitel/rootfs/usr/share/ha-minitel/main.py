@@ -20,6 +20,8 @@ def parse_args() -> Config:
     parser.add_argument("--serial-baud-rate", type=int, default=1200, choices=[1200, 4800, 9600])
     parser.add_argument("--serial-parity", default="even", choices=["none", "even", "odd"])
     parser.add_argument("--log-level", default="info", choices=["debug", "info", "warning", "error"])
+    parser.add_argument("--ssl-certfile", default="")
+    parser.add_argument("--ssl-keyfile", default="")
     args = parser.parse_args()
 
     return Config(
@@ -29,6 +31,8 @@ def parse_args() -> Config:
         serial_baud_rate=args.serial_baud_rate,
         serial_parity=args.serial_parity,
         log_level=args.log_level,
+        ssl_certfile=args.ssl_certfile,
+        ssl_keyfile=args.ssl_keyfile,
         ha_token=os.environ.get("SUPERVISOR_TOKEN", ""),
     )
 

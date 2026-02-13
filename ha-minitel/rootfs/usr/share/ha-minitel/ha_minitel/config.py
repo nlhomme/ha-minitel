@@ -13,5 +13,7 @@ class Config:
     serial_baud_rate: int = 1200
     serial_parity: str = "even"
     log_level: str = "info"
+    ssl_certfile: str = ""
+    ssl_keyfile: str = ""
     ha_url: str = "ws://supervisor/core/websocket"
     ha_token: str = ""
